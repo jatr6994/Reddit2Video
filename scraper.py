@@ -5,11 +5,6 @@ from time import sleep
 import sys
 
 
-
-
-
-
-
 class SubredditScraper:
 	def __init__(self, sub, sort='new', lim=900, mode='w'):
 		self.sub = sub
@@ -91,6 +86,4 @@ if __name__ == "__main__":
 					password = sys.argv[4],
 					user_agent = sys.argv[5])
 
-SubredditScraper(sys.argv[6], lim=997, mode='w', sort='top').get_posts()
-
-
+	SubredditScraper(sys.argv[6], lim=997, mode='w', sort='top').get_posts()
