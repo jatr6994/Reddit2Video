@@ -2,7 +2,7 @@ import praw
 import sys
 
 
-def getReddit(sub, sort, time_filter, limit):
+def getSubreddit(sub, sort, time_filter, limit=1):
 	if sort == 'new':
 		sub = reddit.subreddit(sub).new(time_filter=time_filter, limit=limit)
 	elif sort == 'top':
@@ -23,7 +23,8 @@ def getReddit(sub, sort, time_filter, limit):
 	return post
 
 def getComments(post, sort, limit):
-	submission = reddit.submission(id=post['id'])
+	post_id = post['id']
+	submission = reddit.submission(id=post_id)
 	submission.comment_sort = sort
 	submission.comment_limit = limit
 
@@ -33,6 +34,10 @@ def getComments(post, sort, limit):
 			res[comment.author] = comment.body
 		except:
 			pass
+
+	for k, v in res.items():
+		print(f'---------------- {k} ---------------')
+		print(v)
 
 
 	return res
@@ -45,11 +50,7 @@ if __name__ == "__main__":
 		password = sys.argv[4],
 		user_agent = sys.argv[5])
 
-	post = getReddit(sub=sys.argv[6], sort='top', time_filter='week', limit=1) # get top post of sub reddit
-	comments = getComments(post=post, sort='best', limit=10) # get top comments, well try atleast
-	for k, v in comments.items():
-		print(k)
-		print(v)
-		print('---------------------------------')
+	post = getSubreddit(sub=sys.argv[6], sort='top', time_filter='week', limit=1) # please dont make limit > 1 
 
+	comments = getComments(post=post, sort='top', limit=10) # get top comments, well try atleast
 
