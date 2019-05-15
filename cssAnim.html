@@ -1,0 +1,96 @@
+<html>
+
+<!-- thanks https://jsfiddle.net/gionaf/SNycF/ -->
+
+<head>
+<!-- <script src="https://jeremyckahn.github.io/rekapi/rekapi.js"></script> -->
+<!-- <script type="module" src="https://jeremyckahn.github.io/shifty/shifty.js"></script> -->
+<!-- <script type="module" src="https://jeremyckahn.github.io/rekapi/rekapi.js"></script> -->
+<script src="https://jeremyckahn.github.io/kapi/js/kapi.min.js"></script>
+<style>
+
+.text
+{
+    position: relative;
+    overflow: hidden;
+}
+.fadingEffect {
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 100%;
+    background: white;
+    animation: showHide 5s ease-in alternate infinite;
+}
+@keyframes showHide
+{
+    0% {width:100%}
+    40% {width:0%}
+    60% {width:0%;}
+    100% {width:100%;}
+}
+
+</style>
+
+
+<body>
+
+<script>
+
+// import('https://jeremyckahn.github.io/shifty/shifty.js')
+//   .then((module) => {
+//     // Do something with the module.
+// 	console.log( shifty )
+
+// 	import('https://jeremyckahn.github.io/rekapi/rekapi.js')
+// 	  .then((module) => {
+// 	    // Do something with the module.
+// 		console.log( shifty )
+// 	  });
+//   });
+// const rekapi = require( "rekapi.js" )
+// import { Rekapi, Actor } from 'https://jeremyckahn.github.io/rekapi/rekapi.js';
+// import "https://jeremyckahn.github.io/rekapi/rekapi.js"
+
+</script>
+
+<!-- <canvas> -->
+<div id="demo1"></div>
+<div class="text">
+Ffs that was annoying as fuck.
+<div class="fadingEffect">
+</div>
+</div>
+
+<script>
+
+myKapi = kapi(document.getElementById('demo1'), {
+    fps: 30,
+    // Set up some basic styles for the canvas
+    styles: {
+        height:     '400px',
+        width:      '500px',
+        background: '#333'
+    }
+}).play(); // Start the animation
+ 
+// The actor `circle` is defined in shapes.js
+circle1 = myKapi.add(circle, {
+    name:   'circle1',
+    x:      70,
+    y:      70,
+    radius: 50,
+    color:  '#00ffaa',
+    easing: 'easeInOutQuint'
+}).keyframe(0, {
+    // Blank, defining keyframe zero as the same as the initial state
+}).keyframe('3s', {
+    x:  300,
+    y:  300
+}).keyframe('3.25s', {
+    // Empty keyframes act as a "wait"
+}).keyframe('6s', {
+    x:  '+=50',
+    y:  100
+}).liveCopy('8s', 0);
+
+</script>
