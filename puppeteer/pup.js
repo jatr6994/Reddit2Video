@@ -13,7 +13,7 @@ function delay(time) {
 
   await page.tracing.start({ screenshots: true, path: 'trace.json' });
   await page.goto('file:///C:/Users/7UR7L3/Documents/MEGAsync/dev/projects/reddit2video/Reddit2Video/cssAnim.html', { timeout: 60000 });
-  await delay( 4000 );
+  await delay( 10000 );
   await page.tracing.stop();
 
   // --- extracting data from trace.json ---
@@ -25,7 +25,7 @@ function delay(time) {
       typeof x.args.snapshot !== 'undefined'
   ));
   traceScreenshots.forEach(function(snap, index) {
-    fs.writeFile('frames/trace-screenshot-'+index+'.png', snap.args.snapshot, 'base64', function(err) {
+    fs.writeFile('frames/trace-screenshot-'+("00000"+index).substr(-5)+'.png', snap.args.snapshot, 'base64', function(err) {
       if (err) {
         console.log('writeFile error', err);
       }

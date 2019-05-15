@@ -3,7 +3,7 @@ import os
 
 filenames = [ "frames" + "/" + img for img in os.listdir( "frames" ) if img.endswith( ".png" ) ]
 
-with imageio.get_writer('movie.mp4', mode='I') as writer:
+with imageio.get_writer('movie.mp4', mode='I', fps=60) as writer:
     for filename in filenames:
         image = imageio.imread(filename)
         writer.append_data(image)
