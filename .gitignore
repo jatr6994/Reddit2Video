@@ -2,4 +2,4 @@
 *.wav
 *.mp4
 *.exe
-/puppeteer/node_modules/
+*node_modules/
