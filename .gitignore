@@ -3,3 +3,4 @@
 *.mp4
 *.exe
 /puppeteer/node_modules/*
+/puppeteer/frames/*

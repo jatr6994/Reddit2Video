@@ -12,7 +12,8 @@ function delay(time) {
   const page = await browser.newPage();
 
   await page.tracing.start({ screenshots: true, path: 'trace.json' });
-  await page.goto('file:///C:/Users/7UR7L3/Documents/MEGAsync/dev/projects/reddit2video/Reddit2Video/cssAnim.html', { timeout: 60000 });
+  // await page.goto('file:///C:/Users/7UR7L3/Documents/MEGAsync/dev/projects/reddit2video/Reddit2Video/cssAnim.html', { timeout: 60000 });
+  await page.goto('file:///C:/Users/Jacob/Desktop/Reddit2Video/cssAnim.html', { timeout: 60000 });
   await delay( 10000 );
   await page.tracing.stop();
 
