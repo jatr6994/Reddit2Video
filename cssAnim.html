@@ -1,32 +1,32 @@
 <html>
 
-<!-- thanks https://jsfiddle.net/gionaf/SNycF/ -->
+<!-- thanks https://stackoverflow.com/a/53882402 ( and ig https://jsfiddle.net/gionaf/SNycF/ ) -->
 
 <head>
-<!-- <script src="https://jeremyckahn.github.io/rekapi/rekapi.js"></script> -->
-<!-- <script type="module" src="https://jeremyckahn.github.io/shifty/shifty.js"></script> -->
-<!-- <script type="module" src="https://jeremyckahn.github.io/rekapi/rekapi.js"></script> -->
-<script src="https://jeremyckahn.github.io/kapi/js/kapi.min.js"></script>
 <style>
 
-.text
-{
-    position: relative;
-    overflow: hidden;
+body {
+  font-family: "Noto Sans", Arial, sans-serif;
 }
-.fadingEffect {
-    position: absolute;
-    top: 0; bottom: 0; right: 0;
-    width: 100%;
-    background: white;
-    animation: showHide 5s ease-in alternate infinite;
+
+div {
+  font-size: 2.5em;
 }
-@keyframes showHide
-{
-    0% {width:100%}
-    40% {width:0%}
-    60% {width:0%;}
-    100% {width:100%;}
+
+div span {
+    background: linear-gradient(#1a1a1b,#1a1a1b) left no-repeat, rgba(0, 0, 0, 0);
+    background-size:0% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation:loading 15s ease-in alternate infinite;
+}
+
+@keyframes loading {
+    0% { background-size: 0% 100%; }
+    40% { background-size: 100% 100%; }
+    60% { background-size: 100% 100%; }
+    100% { background-size: 0% 100%; }
 }
 
 </style>
@@ -34,63 +34,6 @@
 
 <body>
 
-<script>
-
-// import('https://jeremyckahn.github.io/shifty/shifty.js')
-//   .then((module) => {
-//     // Do something with the module.
-// 	console.log( shifty )
-
-// 	import('https://jeremyckahn.github.io/rekapi/rekapi.js')
-// 	  .then((module) => {
-// 	    // Do something with the module.
-// 		console.log( shifty )
-// 	  });
-//   });
-// const rekapi = require( "rekapi.js" )
-// import { Rekapi, Actor } from 'https://jeremyckahn.github.io/rekapi/rekapi.js';
-// import "https://jeremyckahn.github.io/rekapi/rekapi.js"
-
-</script>
-
-<!-- <canvas> -->
-<div id="demo1"></div>
-<div class="text">
-Coming soon, we’re bringing the first set of features to Your Phone app for Windows Insiders with an Android device. Snap a pic on your Android, see it on your PC. You can finally stop emailing yourself photos. With Your Phone app, your Android’s most recent photos sync to your PC automatically. Need to add a photo to your presentation? Want to spruce up that selfie with some Windows Ink action? Just drag and drop.
-<div class="fadingEffect">
-</div>
-</div>
-
-<script>
-
-myKapi = kapi(document.getElementById('demo1'), {
-    fps: 30,
-    // Set up some basic styles for the canvas
-    styles: {
-        height:     '400px',
-        width:      '500px',
-        background: '#333'
-    }
-}).play(); // Start the animation
- 
-// The actor `circle` is defined in shapes.js
-circle1 = myKapi.add(circle, {
-    name:   'circle1',
-    x:      70,
-    y:      70,
-    radius: 50,
-    color:  '#00ffaa',
-    easing: 'easeInOutQuint'
-}).keyframe(0, {
-    // Blank, defining keyframe zero as the same as the initial state
-}).keyframe('3s', {
-    x:  300,
-    y:  300
-}).keyframe('3.25s', {
-    // Empty keyframes act as a "wait"
-}).keyframe('6s', {
-    x:  '+=50',
-    y:  100
-}).liveCopy('8s', 0);
-
-</script>
+<div>
+<span>
+Real live bus driver here! Only been driving for 2 years though. As said already on here we all wish passengers would have their form of payment ready as it slows us down a hell of a lot when you don't. More importantly for me though is don't give me death stares or even a smart arse comment because the bus is late. I pride myself on being on time as much as possible and having good statistics on KPI's so when I'm not on time it's because of shitty traffic, time consuming interactions with people or an impossible schedule.
