@@ -6,3 +6,4 @@
 *frames/*
 *trace.json
 run.py
+__pycache__/*
