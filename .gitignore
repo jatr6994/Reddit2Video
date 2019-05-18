@@ -3,6 +3,6 @@
 *.mp4
 *.exe
 /puppeteer/node_modules/*
-/puppeteer/frames/*
+*frames/*
 *trace.json
 run.py
