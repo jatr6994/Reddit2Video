@@ -12,7 +12,6 @@ async def main():
 	audio_len = 1 # seconds in audio
 	time = 0
 	frame = 0
-	await page.tracing.stop()
 	while time < audio_len:
 		await page.screenshot({'path': f'frames/example_{str(frame).zfill(4)}.png'})
 		frame += 1
