@@ -1,26 +1,24 @@
 import asyncio
 from pyppeteer import launch
-import time
+from time import sleep
 import imageio
 import os
 
 async def main():
 	browser = await launch(headless=False)
 	page = await browser.newPage()
-	await page.setViewport({'width': 1920, 'height': 1080 })
+	await page.setViewport({'width': 1920, 'height': 1080})
 	await page.goto('file:///C:/Users/Jacob/Desktop/Reddit2Video/cssAnim.html')
-	audio_len = 1 # 10 sec
+	audio_len = 1 # seconds in audio
 	time = 0
 	frame = 0
+	await page.tracing.stop()
 	while time < audio_len:
-		frame_num = str(frame).zfill(4)
+		await page.screenshot({'path': f'frames/example_{str(frame).zfill(4)}.png'})
 		frame += 1
 		time += (1/60)
-		print(time)
-		try:
-			await page.screenshot({'path': f'frames/example_{frame_num}.png'})
-		except:
-			break
+		sleep(1/60)
+
 	await browser.close()
 
 
