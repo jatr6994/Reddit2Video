@@ -4,4 +4,4 @@
 *.exe
 /puppeteer/node_modules/*
 /puppeteer/frames/*
-/puppeteer/trace.json
+*trace.json
