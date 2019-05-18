@@ -5,3 +5,4 @@
 /puppeteer/node_modules/*
 /puppeteer/frames/*
 *trace.json
+run.py
